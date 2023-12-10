@@ -1,17 +1,17 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 
 function TabPanel(props) {
-  const { children, value, index, ...other } = props;
+  const { children, pageNumber, index, ...other } = props;
 
   return (
     <div
       role="tabpanel"
-      hidden={value !== index}
+      hidden={pageNumber !== index}
       id={`vertical-tabpanel-${index}`}
       aria-labelledby={`vertical-tab-${index}`}
       {...other}
     >
-      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+      {pageNumber === index && <Box sx={{ p: 3 }}>{children}</Box>}
     </div>
   );
 }
