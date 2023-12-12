@@ -8,17 +8,29 @@ import {
 } from "@mui/icons-material";
 import MainContext from "../../context";
 import { useContext } from "react";
+import { blue } from "@mui/material/colors";
 const SidebarTabs = () => {
   const { pageNumber, handlePageNumber, setOpenDrawer } =
     useContext(MainContext);
+
   const tabProps = (index) => {
     return {
       id: `sidebar-tab-${index}`,
-      "aria-controls": `tabpanel-${index}`,
+      "aria-controls": `Page-${index}`,
     };
   };
+
+  const tabs = [
+    { label: "صفحه اصلی", icon: <HomeRounded />, ...tabProps(0) },
+    { label: "درباره من", icon: <PersonRounded />, ...tabProps(1) },
+    { label: "رزومه من", icon: <TextSnippetRounded />, ...tabProps(2) },
+    { label: "نمونه کارها", icon: <TerminalRounded />, ...tabProps(3) },
+    { label: "ارتباط با من", icon: <AlternateEmailRounded />, ...tabProps(4) },
+  ];
+
   return (
     <Tabs
+      visibleScrollbar
       orientation="vertical"
       variant="scrollable"
       scrollButtons="auto"
@@ -26,47 +38,24 @@ const SidebarTabs = () => {
       value={pageNumber}
       onChange={handlePageNumber}
     >
-      <Tab
-        label="صفحه اصلی"
-        icon={<HomeRounded />}
-        sx={{ color: "white" }}
-        iconPosition="start"
-        {...tabProps(0)}
-        onClick={() => setOpenDrawer(false)}
-      />
-      <Tab
-        label="درباره من"
-        icon={<PersonRounded />}
-        sx={{ color: "white" }}
-        iconPosition="start"
-        {...tabProps(1)}
-        onClick={() => setOpenDrawer(false)}
-      />
-      <Tab
-        label="رزومه من"
-        icon={<TextSnippetRounded />}
-        sx={{ color: "white" }}
-        iconPosition="start"
-        {...tabProps(2)}
-        onClick={() => setOpenDrawer(false)}
-      />
-      <Tab
-        label="نمونه کارها"
-        icon={<TerminalRounded />}
-        sx={{ color: "white" }}
-        iconPosition="start"
-        {...tabProps(3)}
-        onClick={() => setOpenDrawer(false)}
-      />
-
-      <Tab
-        label="ارتباط با من"
-        icon={<AlternateEmailRounded />}
-        sx={{ color: "white" }}
-        iconPosition="start"
-        {...tabProps(4)}
-        onClick={() => setOpenDrawer(false)}
-      />
+      {tabs.map((tab, index) => (
+        <Tab
+          key={index}
+          label={tab.label}
+          icon={tab.icon}
+          sx={{
+            color: "white",
+            transition: "transform 0.4s",
+            ":hover": {
+              transform: "scale(0.8)",
+              color: blue[100],
+            },
+          }}
+          iconPosition="start"
+          {...tab}
+          onClick={() => setOpenDrawer(false)}
+        />
+      ))}
     </Tabs>
   );
 };

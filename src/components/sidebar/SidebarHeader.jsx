@@ -1,25 +1,41 @@
 import { Avatar, Typography } from "@mui/material";
 
-import { myPhoto } from "../../assets/myPhoto";
-import { useContext } from "react";
+import myProfile from "../../assets/myProfile.jpg";
+import { useContext, useEffect, useState } from "react";
 import MainContext from "../../context";
 
 const SidebarHeader = () => {
   const { openDrawer } = useContext(MainContext);
+  const [showAvatar, setShowAvatar] = useState(openDrawer);
+
+  useEffect(() => {
+    let timeoutId;
+
+    if (openDrawer) {
+      timeoutId = setTimeout(() => {
+        setShowAvatar(openDrawer);
+      }, 100);
+    } else {
+      setShowAvatar(openDrawer);
+    }
+    return () => clearTimeout(timeoutId);
+  }, [openDrawer]);
+
+  const displayStyle = showAvatar ? "block" : "none";
 
   return (
     <>
       <Avatar
-        src={myPhoto}
+        src={myProfile}
         sx={{
           width: 200,
           height: 200,
           margin: "0 auto",
           mt: 2,
-          borderRadius: 4,
+          borderRadius: 3,
           display: {
-            xs: openDrawer ? "block" : "none",
-            sm: openDrawer ? "block" : "none",
+            xs: displayStyle,
+            sm: displayStyle,
             md: "block",
             lg: "block",
             xl: "block",

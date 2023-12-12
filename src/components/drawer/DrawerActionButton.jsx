@@ -1,5 +1,4 @@
 import { Box, Fab } from "@mui/material";
-import { blue } from "@mui/material/colors";
 import { MenuRounded } from "@mui/icons-material";
 import { useContext } from "react";
 import MainContext from "../../context";
@@ -9,10 +8,12 @@ const DrawerActionButton = () => {
   return (
     <Box
       sx={{
+        position: "absolute",
         m: 3,
+
         display: {
           xs: "Block",
-          sm: "block",
+          sm: "Block",
           md: "none",
           lg: "none",
           xl: "none",
@@ -23,8 +24,17 @@ const DrawerActionButton = () => {
         size="small"
         aria-label="Sidebar"
         sx={{
-          background: blue[300],
-          ":hover": { background: blue[400] },
+          borderRadius: 4,
+          background: "inherit",
+          boxShadow: "none",
+          transition: "transform 0.4s",
+          color: "whitesmoke",
+
+          ":hover": {
+            background: "inherit",
+            boxShadow: "none",
+            transform: "scale(2)",
+          },
         }}
         onClick={() => setOpenDrawer(!openDrawer)}
       >
