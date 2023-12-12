@@ -2,16 +2,8 @@ import Page from "../pages/components/Page";
 import MainContext from "../context";
 import bg04 from "../assets/img4.jpg";
 import { useContext } from "react";
-import {
-  Box,
-  CircularProgress,
-  Typography,
-  Rating,
-  Divider,
-  Chip,
-} from "@mui/material";
-import AboutInfo from "./AboutInfo";
-import Myskills from "./MySkills";
+import { Box } from "@mui/material";
+import { Myskills, AboutInfo } from ".";
 
 const About = () => {
   const { pageNumber } = useContext(MainContext);
@@ -25,6 +17,7 @@ const About = () => {
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           height: "100vh",
+          overflow: "auto",
         }}
       >
         <AboutInfo />
@@ -35,5 +28,3 @@ const About = () => {
 };
 
 export default About;
-
-

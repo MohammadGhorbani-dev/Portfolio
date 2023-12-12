@@ -29,7 +29,7 @@ const SidebarFooter = () => {
           mx: 2,
         }}
       >
-        opyright 2023{<CopyrightRounded sx={{ height: 39 }} />}
+        opyright 2023{<CopyrightRounded sx={{ height: 40 }} />}
       </Typography>
     </Box>
   );

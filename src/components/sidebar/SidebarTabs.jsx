@@ -46,6 +46,7 @@ const SidebarTabs = () => {
           sx={{
             color: "white",
             transition: "transform 0.4s",
+
             ":hover": {
               transform: "scale(0.8)",
               color: blue[100],
