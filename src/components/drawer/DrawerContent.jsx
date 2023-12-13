@@ -3,8 +3,11 @@ import { SidebarContent } from "../sidebar";
 import MainContext from "../../context";
 import { useContext } from "react";
 
+
 const DrawerContent = () => {
   const { setOpenDrawer, openDrawer } = useContext(MainContext);
+
+
   return (
     <SwipeableDrawer
       variant="temporary"

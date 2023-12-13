@@ -6,7 +6,7 @@ const SidebarContent = () => {
   return (
     <Box sx={{ textAlign: "center", justifyContent: "center" }}>
       <SidebarHeader  />
-      <Divider variant="middle" color={grey[700]} sx={{ my: 2 }} />
+      <Divider variant="middle" color={grey[700]} sx={{ my: 1 }} />
       <SidebarTabs />
       <Divider variant="middle" color={grey[700]} sx={{ mt: 2 }} />
       <SidebarFooter />

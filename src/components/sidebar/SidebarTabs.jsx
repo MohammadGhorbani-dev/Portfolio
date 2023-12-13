@@ -23,9 +23,8 @@ const SidebarTabs = () => {
   const tabs = [
     { label: "صفحه اصلی", icon: <HomeRounded />, ...tabProps(0) },
     { label: "درباره من", icon: <PersonRounded />, ...tabProps(1) },
-    { label: "رزومه من", icon: <TextSnippetRounded />, ...tabProps(2) },
-    { label: "نمونه کارها", icon: <TerminalRounded />, ...tabProps(3) },
-    { label: "ارتباط با من", icon: <AlternateEmailRounded />, ...tabProps(4) },
+    { label: "نمونه کارها", icon: <TerminalRounded />, ...tabProps(2) },
+    { label: "ارتباط با من", icon: <AlternateEmailRounded />, ...tabProps(3) },
   ];
 
   return (

@@ -10,7 +10,7 @@ const DrawerActionButton = () => {
       sx={{
         position: "absolute",
         m: 3,
-
+        zIndex: 5,
         display: {
           xs: "Block",
           sm: "Block",

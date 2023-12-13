@@ -4,12 +4,16 @@ import bg04 from "../assets/img4.jpg";
 import { useContext } from "react";
 import { Box } from "@mui/material";
 import { Myskills, AboutInfo } from ".";
+import { Helmet } from "react-helmet-async";
 
 const About = () => {
   const { pageNumber } = useContext(MainContext);
 
   return (
     <Page pageNumber={pageNumber} index={1}>
+      <Helmet>
+        <title>MOHAMMAD GHORBANI | About Me</title>
+      </Helmet>
       <Box
         sx={{
           backgroundImage: `url(${bg04})`,
