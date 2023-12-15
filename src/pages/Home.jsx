@@ -1,4 +1,3 @@
-import bg02 from "../assets/img2.jpg";
 
 import { useState, useEffect, useRef } from "react";
 import { Typography, Box, Zoom } from "@mui/material";
@@ -39,10 +38,7 @@ const Home = () => {
 
       <Box
         sx={{
-          backgroundImage: `url(${bg02})`,
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
+         
           height: "100vh",
           display: "flex",
           flexDirection: "column",

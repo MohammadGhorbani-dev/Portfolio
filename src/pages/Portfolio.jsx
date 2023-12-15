@@ -14,7 +14,6 @@ import {
 } from "@mui/material";
 import { Helmet } from "react-helmet-async";
 import { blueGrey } from "@mui/material/colors";
-import bg01 from "../assets/img1.jpg";
 
 const Portfolio = () => {
   const [loading, setLoading] = useState(false);
@@ -45,10 +44,6 @@ const Portfolio = () => {
           xl: 1,
         },
         overflowY: "auto",
-        backgroundImage: `url(${bg01})`,
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
       }}
     >
       <Helmet>

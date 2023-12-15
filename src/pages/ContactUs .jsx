@@ -15,7 +15,6 @@ import emailjs from "@emailjs/browser";
 import { AccountCircleRounded, EmailRounded } from "@mui/icons-material";
 import { useFormik } from "formik";
 import { contactUsSchema } from "../validations/contactUsValidation";
-import bg05 from "../assets/img5.jpg";
 
 const ContactUs = () => {
   const [loading, setLoading] = useState(false);
@@ -54,10 +53,6 @@ const ContactUs = () => {
   return (
     <Box
       sx={{
-        backgroundImage: `url(${bg05})`,
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
         height: "100vh",
         overflow: "auto",
       }}
@@ -73,8 +68,8 @@ const ContactUs = () => {
         }}
         {...(loading ? { timeout: 1000 } : {})}
       >
-        <Grid container sx={{ py: 25 }} rowSpacing={4}>
-          <Grid xs={9} sx={{ m: "auto" }}>
+        <Grid container rowSpacing={4}>
+          <Grid xs={9} sx={{ m: "auto" ,py: 20 }}>
             <Card
               sx={{
                 borderRadius: 3,

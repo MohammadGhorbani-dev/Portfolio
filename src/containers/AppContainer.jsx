@@ -38,7 +38,7 @@ function AppContainer() {
         <SidebarContainer>
           <Sidebar />
         </SidebarContainer>
-        <PagesContainer>
+        <PagesContainer >
           <Page pageNumber={pageNumber} index={0}>
             <Home />
           </Page>
