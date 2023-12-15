@@ -3,11 +3,9 @@ import { Sidebar } from "../components/sidebar";
 import PagesContainer from "./PagesContainer";
 import Page from "../pages/components/Page";
 import { useEffect, useState } from "react";
-import { Typography } from "@mui/material";
 import SidebarContainer from "./SidebarContainer";
 import MainContext from "../context";
-import { Home } from "../pages";
-import About from "../pages/About";
+import { Home, About, Portfolio, ContactUs } from "../pages";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
@@ -41,23 +39,17 @@ function AppContainer() {
           <Sidebar />
         </SidebarContainer>
         <PagesContainer>
-          <Home />
-          <About />
-
-          {/* <Page pageNumber={pageNumber} index={2}>
-            <Typography variant="h4" sx={{ textAlign: "center" }}>
-              رزومه من
-            </Typography>
-          </Page> */}
+          <Page pageNumber={pageNumber} index={0}>
+            <Home />
+          </Page>
+          <Page pageNumber={pageNumber} index={1}>
+            <About />
+          </Page>
           <Page pageNumber={pageNumber} index={2}>
-            <Typography variant="h4" sx={{ textAlign: "center" }}>
-              نمونه کارها
-            </Typography>
+            <Portfolio />
           </Page>
           <Page pageNumber={pageNumber} index={3}>
-            <Typography variant="h4" sx={{ textAlign: "center" }}>
-              ارتباط با من
-            </Typography>
+            <ContactUs />
           </Page>
         </PagesContainer>
       </MainLayout>

@@ -1,31 +1,12 @@
 import { Tabs, Tab } from "@mui/material";
-import {
-  HomeRounded,
-  PersonRounded,
-  TextSnippetRounded,
-  TerminalRounded,
-  AlternateEmailRounded,
-} from "@mui/icons-material";
+import { tabs } from "../../constants/tabsData";
 import MainContext from "../../context";
 import { useContext } from "react";
 import { blue } from "@mui/material/colors";
+
 const SidebarTabs = () => {
   const { pageNumber, handlePageNumber, setOpenDrawer } =
     useContext(MainContext);
-
-  const tabProps = (index) => {
-    return {
-      id: `sidebar-tab-${index}`,
-      "aria-controls": `Page-${index}`,
-    };
-  };
-
-  const tabs = [
-    { label: "صفحه اصلی", icon: <HomeRounded />, ...tabProps(0) },
-    { label: "درباره من", icon: <PersonRounded />, ...tabProps(1) },
-    { label: "نمونه کارها", icon: <TerminalRounded />, ...tabProps(2) },
-    { label: "ارتباط با من", icon: <AlternateEmailRounded />, ...tabProps(3) },
-  ];
 
   return (
     <Tabs

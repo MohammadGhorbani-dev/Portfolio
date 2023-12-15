@@ -1,52 +1,13 @@
 import { Avatar, Typography, Box, IconButton, Tooltip } from "@mui/material";
-import {
-  GitHub,
-  LinkedIn,
-  Instagram,
-  SportsEsports,
-  Telegram,
-} from "@mui/icons-material";
 import myProfile from "../../assets/myProfile.jpg";
 import { useContext, useEffect, useState } from "react";
 import MainContext from "../../context";
-import { blue, grey } from "@mui/material/colors";
+import { grey } from "@mui/material/colors";
+import { socialMedia } from "../../constants/socialMediaData";
 
 const SidebarHeader = () => {
   const { openDrawer } = useContext(MainContext);
   const [showAvatar, setShowAvatar] = useState(openDrawer);
-
-  const socialMedia = [
-    {
-      name: "GitHub",
-      icon: GitHub,
-      link: "https://github.com/MohammadGhorbani-dev",
-      hoverColor: "white",
-    },
-    {
-      name: "LinkedIn",
-      icon: LinkedIn,
-      link: "https://www.linkedin.com/in/mohammad--ghorbani/",
-      hoverColor: blue[400],
-    },
-    {
-      name: "Instagram",
-      icon: Instagram,
-      link: "https://www.instagram.com/mohammad_devs/",
-      hoverColor: "#ff1744",
-    },
-    {
-      name: "Telegram",
-      icon: Telegram,
-      link: "https://web.telegram.org/k/",
-      hoverColor: blue[400],
-    },
-    {
-      name: "Steam",
-      icon: SportsEsports,
-      link: "https://steamcommunity.com/profiles/76561198839628975/",
-      hoverColor: "#330e62",
-    },
-  ];
 
   useEffect(() => {
     let timeoutId;
@@ -68,11 +29,21 @@ const SidebarHeader = () => {
       <Avatar
         src={myProfile}
         sx={{
-          width: 200,
-          height: 200,
+          width: {
+            xs: 200,
+            sm: 210,
+            lg: 210,
+            xl: 210,
+          },
+          height: {
+            xs: 200,
+            sm: 210,
+            lg: 200,
+            xl: 200,
+          },
           margin: "0 auto",
           mt: 2,
-          borderRadius: 3,
+          borderRadius: 2,
           display: {
             xs: displayStyle,
             sm: displayStyle,
@@ -86,11 +57,11 @@ const SidebarHeader = () => {
         M Gh
       </Avatar>
 
-      <Typography variant="h5" color="white" sx={{ my: 1 }}>
-        محمد قربانی
+      <Typography variant="h6" color="white" sx={{ my: 1 }}>
+        Mohammad Ghorbani
       </Typography>
       <Typography variant="caption" color="white" sx={{ my: 1 }}>
-        front-end developer
+        Front-end Developer
       </Typography>
       <Box
         component="div"

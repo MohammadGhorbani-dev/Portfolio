@@ -1,8 +1,9 @@
-import { ArrowLeftRounded } from "@mui/icons-material";
+import { ArrowRightRounded } from "@mui/icons-material";
 import { Box, Typography, Divider, Chip, Slide } from "@mui/material";
 import { blue } from "@mui/material/colors";
-import { react } from "../assets/icons";
+import { react } from "../../assets/icons";
 import { useState, useEffect } from "react";
+import { myInfo } from "../../constants/myInfo";
 const AboutInfo = () => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
@@ -11,14 +12,6 @@ const AboutInfo = () => {
       setLoading(false);
     };
   });
-
-  const myInfo = [
-    "نام و نام خانوادگی : محمد قربانی",
-    "سن : 24",
-    "شهر : مشهد",
-    "آدرس ایمیل : mohamad.ghorbani.official@gmail.com",
-  ];
-
   return (
     <Box>
       <Slide
@@ -42,7 +35,7 @@ const AboutInfo = () => {
           variant="body1"
           sx={{ pl: 2, color: "white", display: "flex", py: 1 }}
         >
-          <ArrowLeftRounded sx={{ color: blue[300] }} />
+          <ArrowRightRounded sx={{ color: blue[300] }} />
           {e}
         </Typography>
       ))}

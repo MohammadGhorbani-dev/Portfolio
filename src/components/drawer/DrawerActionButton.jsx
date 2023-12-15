@@ -9,7 +9,8 @@ const DrawerActionButton = () => {
     <Box
       sx={{
         position: "absolute",
-        m: 3,
+        mt: 1,
+        mx: 2,
         zIndex: 5,
         display: {
           xs: "Block",

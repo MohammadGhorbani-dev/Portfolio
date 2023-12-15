@@ -1,0 +1,36 @@
+import {
+  css3,
+  html5,
+  git,
+  javascript,
+  react,
+  next,
+  tailwind,
+  typescript,
+} from "../assets/icons";
+
+export const skills = [
+  { name: "React JS", value: "4.5" },
+  { name: "HTML & CSS", value: "4.5" },
+  { name: "JavaScript", value: "4.5" },
+  { name: "Material UI", value: "4" },
+  { name: "Tailwind css", value: "4.5" },
+  { name: "GitHub", value: "4" },
+  { name: "Git", value: "3.5" },
+  { name: "Responsive Design", value: "4" },
+  { name: "Next JS", value: "1.5" },
+  { name: "Redux", value: "1.5" },
+  { name: "Figma", value: "3" },
+  { name: "Typescript", value: "2" },
+];
+
+export const icons = [
+  css3,
+  html5,
+  git,
+  javascript,
+  react,
+  next,
+  tailwind,
+  typescript,
+];

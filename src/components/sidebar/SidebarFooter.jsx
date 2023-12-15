@@ -10,7 +10,7 @@ const SidebarFooter = () => {
         sx={{
           color: "white",
           display: "flex",
-          justifyContent: "right",
+          justifyContent: "left",
           alignItems: "center",
           mt: 2,
           mx: 2,
@@ -24,12 +24,12 @@ const SidebarFooter = () => {
         sx={{
           color: "white",
           display: "flex",
-          justifyContent: "right",
+          justifyContent: "left",
           alignItems: "center",
           mx: 2,
         }}
       >
-        opyright 2023{<CopyrightRounded sx={{ height: 40 }} />}
+        {<CopyrightRounded sx={{ height: 40 }} />} opyright portfolio 2024
       </Typography>
     </Box>
   );

@@ -1,9 +1,9 @@
-import Grid from "@mui/material/Unstable_Grid2";
+import Grid2 from "@mui/material/Unstable_Grid2";
 import { grey } from "@mui/material/colors";
 
 const SidebarContainer = ({ children }) => {
   return (
-    <Grid
+    <Grid2
       xs={0}
       sm={0}
       md={3}
@@ -17,7 +17,7 @@ const SidebarContainer = ({ children }) => {
       }}
     >
       {children}
-    </Grid>
+    </Grid2>
   );
 };
 

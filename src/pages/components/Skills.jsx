@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { CircleRounded } from "@mui/icons-material";
+import { skills, icons } from "../../constants/skillsAndIconsData,js";
 import {
   Box,
   Typography,
@@ -9,21 +10,9 @@ import {
   Slide,
   Grow,
 } from "@mui/material";
-import { blue } from "@mui/material/colors";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 
-import {
-  css3,
-  html5,
-  git,
-  javascript,
-  react,
-  next,
-  tailwind,
-  typescript,
-} from "../assets/icons";
-
-const Myskills = () => {
+const Skills = () => {
   const [skillValues, setSkillValues] = useState({});
   const [loading, setLoading] = useState(false);
   useEffect(() => {
@@ -62,31 +51,6 @@ const Myskills = () => {
     };
   }, []);
 
-  const skills = [
-    { name: "React JS", value: "4.5" },
-    { name: "HTML & CSS", value: "4.5" },
-    { name: "JavaScript", value: "4.5" },
-    { name: "Material UI", value: "4" },
-    { name: "Tailwind css", value: "4.5" },
-    { name: "GitHub", value: "4" },
-    { name: "Git", value: "3.5" },
-    { name: "Responsive Design", value: "4" },
-    { name: "Next JS", value: "1.5" },
-    { name: "Redux", value: "1.5" },
-    { name: "Figma", value: "3" },
-    { name: "Typescript", value: "2" },
-  ];
-  const icons = [
-    css3,
-    html5,
-    git,
-    javascript,
-    react,
-    next,
-    tailwind,
-    typescript,
-  ];
-
   return (
     <Box sx={{ overflow: "hidden" }}>
       <Slide
@@ -95,14 +59,14 @@ const Myskills = () => {
         style={{
           transitionDelay: loading ? "350ms" : "0ms",
         }}
-        {...(loading ? { timeout: 1500 } : {})}
+        {...(loading ? { timeout: 1000 } : {})}
       >
         <Divider variant="middle" textAlign="left" sx={{ pt: 6, pb: 1 }}>
           <Chip
             variant="outlined"
             label="My Skills"
             icon={
-              <React.Fragment>
+              <>
                 {icons.map((i, index) => (
                   <Box
                     key={index}
@@ -112,7 +76,7 @@ const Myskills = () => {
                     sx={{ width: 20, mx: 0.5 }}
                   />
                 ))}
-              </React.Fragment>
+              </>
             }
           />
         </Divider>
@@ -142,9 +106,7 @@ const Myskills = () => {
                 readOnly
                 value={skillValues[s.name] || 0}
                 precision={0.5}
-                icon={
-                  <CircleRounded fontSize="large" sx={{ color: blue[300] }} />
-                }
+                icon={<CircleRounded fontSize="large" color="info" />}
                 emptyIcon={<CircleRounded fontSize="large" />}
               />
             </Grid2>
@@ -155,4 +117,4 @@ const Myskills = () => {
   );
 };
 
-export default Myskills;
+export default Skills;

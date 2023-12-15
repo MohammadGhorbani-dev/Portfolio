@@ -1,14 +1,11 @@
-import MainContext from "../context";
-import Page from "../pages/components/Page";
 import bg02 from "../assets/img2.jpg";
 
-import { useState, useContext, useEffect, useRef } from "react";
-import { Typography, Box, Fade, Zoom, Collapse } from "@mui/material";
+import { useState, useEffect, useRef } from "react";
+import { Typography, Box, Zoom } from "@mui/material";
 import Typed from "typed.js";
 import { Helmet } from "react-helmet-async";
 
 const Home = () => {
-  const { pageNumber } = useContext(MainContext);
   const infoEl = useRef(null);
 
   const [loading, setLoading] = useState(false);
@@ -35,9 +32,9 @@ const Home = () => {
   }, []);
 
   return (
-    <Page pageNumber={pageNumber} index={0}>
+    <>
       <Helmet>
-        <title>MOHAMMAD GHORBANI | Home </title>
+        <title>HOME | MOHAMMAD GHORBANI</title>
       </Helmet>
 
       <Box
@@ -56,16 +53,23 @@ const Home = () => {
         <Zoom
           in={loading}
           style={{ transitionDelay: loading ? "100ms" : "0ms" }}
-          {...(loading ? { timeout: 1000 } : {})}
+          {...(loading ? { timeout: 1500 } : {})}
         >
-          <Typography variant="h4" sx={{ color: "whitesmoke" }}>
-            my name is mohammad
+          <Typography
+            variant="h4"
+            sx={{ color: "whitesmoke", textAlign: "center" }}
+          >
+            Hi my name is mohammad
           </Typography>
         </Zoom>
 
-        <Typography ref={infoEl} variant="h4" sx={{ color: "whitesmoke" }} />
+        <Typography
+          ref={infoEl}
+          variant="h4"
+          sx={{ color: "whitesmoke", textAlign: "center" }}
+        />
       </Box>
-    </Page>
+    </>
   );
 };
 

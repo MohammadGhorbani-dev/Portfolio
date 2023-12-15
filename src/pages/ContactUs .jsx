@@ -1,0 +1,176 @@
+import {
+  Card,
+  CardContent,
+  Fade,
+  TextField,
+  InputAdornment,
+  CardActions,
+  Button,
+  Box,
+} from "@mui/material";
+import { Helmet } from "react-helmet-async";
+import Grid from "@mui/material/Unstable_Grid2/Grid2";
+import { useRef, useState, useEffect } from "react";
+import emailjs from "@emailjs/browser";
+import { AccountCircleRounded, EmailRounded } from "@mui/icons-material";
+import { useFormik } from "formik";
+import { contactUsSchema } from "../validations/contactUsValidation";
+import bg05 from "../assets/img5.jpg";
+
+const ContactUs = () => {
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    return () => {
+      setLoading(false);
+    };
+  }, []);
+
+  const form = useRef();
+
+  const formik = useFormik({
+    initialValues: {
+      fullName: "",
+      email: "",
+      message: "",
+    },
+    onSubmit: async () => {
+      try {
+        const result = await emailjs.sendForm(
+          "service_xfgbakg",
+          "template_ohjxm2t",
+          form.current,
+          "Q-m2IRGKct6DO1L5d"
+        );
+        console.log(result.text);
+        console.log("message sent");
+      } catch (error) {
+        console.log(error.text);
+      }
+    },
+    validationSchema: contactUsSchema,
+  });
+
+  return (
+    <Box
+      sx={{
+        backgroundImage: `url(${bg05})`,
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        height: "100vh",
+        overflow: "auto",
+      }}
+    >
+      <Helmet>
+        <title>CONTACT | MOHAMMAD GHORBANI</title>
+      </Helmet>
+      <Fade
+        direction="right"
+        in={loading}
+        style={{
+          transitionDelay: loading ? "200ms" : "0ms",
+        }}
+        {...(loading ? { timeout: 1000 } : {})}
+      >
+        <Grid container sx={{ py: 25 }} rowSpacing={4}>
+          <Grid xs={9} sx={{ m: "auto" }}>
+            <Card
+              sx={{
+                borderRadius: 3,
+                backdropFilter: "blur(4px)",
+                backgroundColor: "rgba(0, 0, 0, 0.5)",
+                boxShadow: 10,
+              }}
+            >
+              <form ref={form} onSubmit={formik.handleSubmit}>
+                <CardContent>
+                  <Grid xs={12}>
+                    <TextField
+                      fullWidth
+                      size="medium"
+                      label="Name"
+                      name="fullName"
+                      variant="outlined"
+                      helperText={
+                        formik.touched.fullName ? formik.errors.fullName : null
+                      }
+                      error={Boolean(
+                        formik.touched.fullName && formik.errors.fullName
+                      )}
+                      value={formik.values?.fullName}
+                      onChange={formik.handleChange}
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <AccountCircleRounded />
+                          </InputAdornment>
+                        ),
+                      }}
+                    />
+                  </Grid>
+                  <Grid xs={12}>
+                    <TextField
+                      fullWidth
+                      size="medium"
+                      label="E-mail"
+                      name="email"
+                      variant="outlined"
+                      helperText={
+                        formik.touched.email ? formik.errors.email : null
+                      }
+                      error={Boolean(
+                        formik.touched.email && formik.errors.email
+                      )}
+                      value={formik.values?.email}
+                      onChange={formik.handleChange}
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <EmailRounded />
+                          </InputAdornment>
+                        ),
+                      }}
+                    />
+                  </Grid>
+                  <Grid xs={12}>
+                    <TextField
+                      fullWidth
+                      multiline
+                      rows={6}
+                      size="medium"
+                      label="Message"
+                      name="message"
+                      variant="outlined"
+                      helperText={
+                        formik.touched.message ? formik.errors.message : null
+                      }
+                      error={Boolean(
+                        formik.touched.message && formik.errors.message
+                      )}
+                      value={formik.values?.message}
+                      onChange={formik.handleChange}
+                    />
+                  </Grid>
+                </CardContent>
+                <CardActions>
+                  <Button
+                    variant="contained"
+                    color="success"
+                    sx={{ mt: 2, borderRadius: 2, color: "whitesmoke" }}
+                    fullWidth
+                    onClick={formik.handleSubmit}
+                  >
+                    Submit
+                  </Button>
+                </CardActions>
+              </form>
+            </Card>
+          </Grid>
+        </Grid>
+      </Fade>
+    </Box>
+  );
+};
+
+export default ContactUs;
