@@ -8,6 +8,7 @@ import MainContext from "../context";
 import { Home, About, Portfolio, ContactUs } from "../pages";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import SwipeableViews from "react-swipeable-views";
 
 function AppContainer() {
   const [pageNumber, setPageNumber] = useState(0);
@@ -22,6 +23,9 @@ function AppContainer() {
 
   const handlePageNumber = (event, newValue) => {
     setPageNumber(newValue);
+  };
+  const handelPageChange = (index) => {
+    setPageNumber(index);
   };
 
   return (
@@ -38,19 +42,21 @@ function AppContainer() {
         <SidebarContainer>
           <Sidebar />
         </SidebarContainer>
-        <PagesContainer >
-          <Page pageNumber={pageNumber} index={0}>
-            <Home />
-          </Page>
-          <Page pageNumber={pageNumber} index={1}>
-            <About />
-          </Page>
-          <Page pageNumber={pageNumber} index={2}>
-            <Portfolio />
-          </Page>
-          <Page pageNumber={pageNumber} index={3}>
-            <ContactUs />
-          </Page>
+        <PagesContainer>
+          <SwipeableViews index={pageNumber} onChangeIndex={handelPageChange}>
+            <Page pageNumber={pageNumber} index={0}>
+              <Home />
+            </Page>
+            <Page pageNumber={pageNumber} index={1}>
+              <About />
+            </Page>
+            <Page pageNumber={pageNumber} index={2}>
+              <Portfolio />
+            </Page>
+            <Page pageNumber={pageNumber} index={3}>
+              <ContactUs />
+            </Page>
+          </SwipeableViews>
         </PagesContainer>
       </MainLayout>
     </MainContext.Provider>

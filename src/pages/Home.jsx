@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import { Typography, Box, Zoom } from "@mui/material";
 import Typed from "typed.js";
@@ -38,7 +37,6 @@ const Home = () => {
 
       <Box
         sx={{
-         
           height: "100vh",
           display: "flex",
           flexDirection: "column",
@@ -53,9 +51,9 @@ const Home = () => {
         >
           <Typography
             variant="h4"
-            sx={{ color: "whitesmoke", textAlign: "center" }}
+            sx={{ color: "whitesmoke", textAlign: "center"}}
           >
-            Hi my name is mohammad
+            Mohammad Ghorbani
           </Typography>
         </Zoom>
 
