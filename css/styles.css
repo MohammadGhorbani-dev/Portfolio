@@ -51,8 +51,8 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
-  body::-webkit-scrollbar {
+  ::-webkit-scrollbar {
     width: 0;
-    background: transparent;
+    background: none;
   }
 }
