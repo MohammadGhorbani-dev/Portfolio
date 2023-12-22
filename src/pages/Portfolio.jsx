@@ -56,7 +56,7 @@ const Portfolio = () => {
           style={{
             transitionDelay: loading ? `${item.id + 2}99ms` : "0ms",
           }}
-          {...(loading ? { timeout: (item.id + 1) * 800 } : {})}
+          {...(loading ? { timeout: (item.id + 1) * 700 } : {})}
           key={item.id}
         >
           <Grid2 xs={12} sm={6} md={6} lg={6} xl={6}>

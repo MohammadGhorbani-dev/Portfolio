@@ -7,7 +7,9 @@ import {
   CardActions,
   Button,
   Box,
+  CircularProgress,
 } from "@mui/material";
+import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import { useRef, useState, useEffect } from "react";
@@ -18,6 +20,7 @@ import { contactUsSchema } from "../validations/contactUsValidation";
 
 const ContactUs = () => {
   const [loading, setLoading] = useState(false);
+  const [sending, setSending] = useState(false);
   useEffect(() => {
     setLoading(true);
     return () => {
@@ -35,15 +38,19 @@ const ContactUs = () => {
     },
     onSubmit: async () => {
       try {
+        setSending(true);
         const result = await emailjs.sendForm(
           "service_xfgbakg",
           "template_ohjxm2t",
           form.current,
           "Q-m2IRGKct6DO1L5d"
         );
+        toast.success("Email sent");
+        formik.resetForm();
+        setSending(false);
         console.log(result.text);
-        console.log("message sent");
       } catch (error) {
+        toast.error("The email was not sent");
         console.log(error.text);
       }
     },
@@ -69,7 +76,7 @@ const ContactUs = () => {
         {...(loading ? { timeout: 1000 } : {})}
       >
         <Grid container rowSpacing={4}>
-          <Grid xs={9} sx={{ m: "auto" ,py: 20 }}>
+          <Grid xs={9} sx={{ m: "auto", py: 20 }}>
             <Card
               sx={{
                 borderRadius: 3,
@@ -151,12 +158,13 @@ const ContactUs = () => {
                 <CardActions>
                   <Button
                     variant="contained"
-                    color="success"
+                    color={sending ? "secondary" : "success"}
                     sx={{ mt: 2, borderRadius: 2, color: "whitesmoke" }}
                     fullWidth
                     onClick={formik.handleSubmit}
+                    disabled={sending}
                   >
-                    Submit
+                    {sending ? <CircularProgress size={25} /> : "Submit"}
                   </Button>
                 </CardActions>
               </form>
