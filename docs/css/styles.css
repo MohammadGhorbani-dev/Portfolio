@@ -31,7 +31,7 @@ body {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 0.5rem;
+  width: 0.6rem;
 }
 
 /* Track */
@@ -41,13 +41,13 @@ body {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgba(245, 245, 245, 0.082);
+  background: rgba(245, 245, 245, 0.445);
   border-radius: 0.5rem;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(245, 245, 245, 0.466);
+  background: rgba(245, 245, 245, 0.932);
 }
 
 @media only screen and (max-width: 768px) {
