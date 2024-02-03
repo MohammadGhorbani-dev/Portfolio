@@ -11,8 +11,7 @@ import {
 
 export const skills = [
   { name: "React JS", value: "4.5" },
-  { name: "HTML", value: "4.5" },
-  { name: "CSS", value: "4.5" },
+  { name: "HTML & CSS", value: "4.5" },
   { name: "JavaScript", value: "4.5" },
   { name: "Material UI", value: "4" },
   { name: "Tailwind css", value: "4.5" },
@@ -25,6 +24,7 @@ export const skills = [
   { name: "Typescript", value: "2" },
   { name: "Axios", value: "3" },
   { name: "Context", value: "4" },
+  { name: "RESTful API", value: "3.5" },
 ];
 
 export const icons = [

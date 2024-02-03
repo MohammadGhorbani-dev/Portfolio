@@ -89,15 +89,15 @@ const Portfolio = () => {
                   <Typography gutterBottom variant="h5" component="div">
                     {item.title}
                   </Typography>
-                  {/* <Typography variant="body2" color="text.secondary">
-                  {item.info}
-                </Typography> */}
+                  <Typography variant="body2" color="text.secondary">
+                    {item.info}
+                  </Typography>
                 </CardContent>
               </CardActionArea>
               <CardActions>
                 <Tooltip title="More details GitHub" arrow>
                   <Button
-                    size="medium"
+                    size="large"
                     color="primary"
                     href={item.githubLink}
                     target="_blank"

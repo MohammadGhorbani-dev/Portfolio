@@ -51,7 +51,7 @@ const Home = () => {
         >
           <Typography
             variant="h4"
-            sx={{ color: "whitesmoke", textAlign: "center"}}
+            sx={{ color: "whitesmoke", textAlign: "center" }}
           >
             Mohammad Ghorbani
           </Typography>
